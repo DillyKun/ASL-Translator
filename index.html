@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="JS/p5.js"></script>
+  <script src="JS/ml5.min.js"></script>
+  <script src="JS/p5.sound.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./CSS/style.css"> <!-- Ensures style.css has higher specificity -->
+</head>
+
+<body>
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="IMG/Signalize Logo.png" alt="Logo" width="75">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav" id="index-nav">
+          <a class="nav-link" href="#hero">Home</a>
+          <a class="nav-link" href="#sandbox">Try It Yourself</a>
+          <a class="nav-link" href="#learnMore">Learn More</a>
+          <a class="nav-link" href="#FAQ">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Row -->
+  <div id="hero" class="row min-vh-100 align-items-center text-center">
+    <div class="col-12">
+      <video autoplay muted loop id="hero-video">
+        <source src="Video/hero-background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h1><span>Sign</span>alize</h1>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <section id="content" class="min-vh-100">
+    <div class="container">
+      <!-- Try It Yourself Row -->
+      <div id="sandbox" class="row py-5">
+        <div class="col-12 text-center">
+          <h2 id="container-title" class="container-title animate" >A<span>S</span>L Translator</h2>
+          <h3 class=" current-translation animate">Current Translation:</h3>
+          <div id="user-instructions" class="user-inst animate"></div>
+          <div id="user-video" class="user-vid animate" ></div>
+        </div>
+        <div class="col-12 col-md-6 text-center animate">
+          <h4>Input <span>Label</span></h4>
+          <div id="user-input"></div>
+        </div>
+        <div class="col-12 col-md-6 text-center animate">
+          <h4><span>Training</span> Buttons</h4>
+          <button type="button" class="btn btn-outline-light animate" id="tbutton">Train Model</button>
+          <button type="button" class="btn btn-outline-light animate" id="sbutton">Save Training</button>
+        </div>
+      </div>
+
+      <!-- Learn More Row -->
+      <div id="learnMore" class="row py-5 text-center">
+        <div class="col-12 animate">
+          <h2>Learn More</h2>
+          <p>
+            Signalize is an <span>American Sign Language</span> (ASL) translator that utilizes <span>computer vision</span> and <span>machine learning</span> as its core technologies.
+            Our goal is to bridge the gap in understanding sign language and provide an <span>educational tool</span> for learning.
+          </p>
+          <div class="container py-5">
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-6 col-lg-4 text-center">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="IMG/1.png" alt="Photo of hand sign" style="width:400px;height:500px;">
+                      <h2 class="overlay-text"><span>Try</span> it Yourself</h2>
+                    </div>
+                    <div class="flip-card-back">
+                      <ol class="center">
+                        <li>Hold up a hand sign to the camera of your device</li>
+                        <li>The hand sign's translation will appear above the video feed</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-12 col-md-6 col-lg-4 text-center">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="IMG/2.png" alt="Photo of hand sign" style="width:400px;height:500px;">
+                      <h2 class="overlay-text"><span>Train</span> it Yourself</h2>
+                    </div>
+                    <div class="flip-card-back">
+                      <ol class="center">
+                        <li>Think of a hand sign you would like to train the model with</li>
+                        <li>Type the sign's translation into the "Input Label" section</li>
+                        <li>Hold your hand sign up into the camera</li>
+                        <li>Repeatedly press the "Train Model" button while your sign is in the camera's view</li>
+                        <li>Press the "Save Training" button once you are done</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FAQ Row -->
+      <div id="FAQ" class="row py-5 text-center animate">
+        <div class="col-12">
+          <h2>FAQ</h2>
+          <div class="accordion accordion-flush " id="accordionFlushExample">
+            <!-- FAQ Items -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button no-highlight collapsed " type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Does hand orientation matter?
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse">
+                <div class="accordion-body">It doesn't matter what hand you use when using Signalize. It is trained to translate the hand sign regardless of hand orientation.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  Can others train the model on their own?
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">As of now, Signalize can only be trained on the owner's computer. Future updates may allow cloud training.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  Will Signalize progressively get smarter to understand other hand signs?
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse">
+                <div class="accordion-body">Yes, with more training data, Signalize can learn more signs and improve its accuracy over time.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- BACK TO TOP BUTTON -->
+<div class='scrolltop'>
+  <div class='scroll icon'>^<i class="fa fa-4x fa-angle-up"></i></div>
+</div>
+<!-- Content to make the page scrollable -->
+<div style="height: 10px;"></div>
+
+<!-- This is the target element you scroll to -->
+<div class="thetop" style="height: 0;"></div>
+
+
+</div> <!-- class nonNav-Body-Container END -->
+
+  <script src="JS/sketch.js"></script>
+  <script src="JS/functions.js"></script>
+  <script src="JS/animation.js"></script>
+  <script src="JS/scroll.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
