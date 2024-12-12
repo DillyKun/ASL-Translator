@@ -1,0 +1,331 @@
+@import url(clash-display.css);
+
+:root {
+  --c-body: #ffffff;
+  --c-white: #FFFFFF;
+  --c-gray: #808080; 
+  --c-black: #000000; 
+  --c-accent: #8cbdfd;
+  --font-base: "ClashDisplay", sans-serif;
+  --box-shadow: 0px 10px 25px rgba(0,0,0,0.08);
+}
+
+@keyframes fade {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+body {
+  color: var(--c-white);
+  font-family: var(--font-base);
+  background-color: var(--c-black);
+}
+
+.navbar{
+  box-shadow: var(--box-shadow);
+  background-color: var(--c-black);
+ }
+ .navbar-nav{
+  font-weight: 500;
+  font-size: 15px;
+ }
+
+ .nav-link{
+  color: var(--c-white);
+ }
+
+ .nav-link:hover{
+  color: var(--c-accent);
+ }
+
+ .navbar-toggler{
+  color: var(--c-accent);
+  border: var(--c-black);
+ }
+
+ /* Styling for different headings*/
+ h1{
+  font-family: var(--font-base);
+  font-weight: 900;
+  color: var(--c-white);
+  text-align: center;
+  pointer-events: none;
+  font-size: 100px;
+  animation: fade 3s forwards;
+}
+
+h2{
+  font-family: var(--font-base);
+  color: var(--c-white);
+  text-align: center;
+  pointer-events: none;
+  font-weight: 500;
+  font-size: 50px;
+}
+
+h3 {
+  font-family: var(--font-base);
+  color: var(--c-white);
+  text-align: center;
+  pointer-events: none;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+h4 {
+  font-family: var(--font-base);
+  color: var(--c-white);
+  text-align: center;
+  pointer-events: none;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.accordion-button {
+  pointer-events: auto; 
+}
+
+.center {
+  text-align: center;
+  list-style-position: inside;
+}
+
+#user-video {
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  width: 100%;             
+  height: auto; 
+  padding: 20px; 
+  transform: scaleX(-1);
+}
+
+input{
+  width: 50%;         
+  height: 60px;        
+  font-size: 1.2rem;   
+  padding: 10px;       
+  border-radius: 8px; 
+  border-color: var(--c-accent);
+  outline: none;
+}
+
+input:hover {
+  background-color: #e0e0e0;
+}
+
+button {
+  width: 150px;       
+  height: 60px;        
+  font-size: 1.2rem;   
+  padding: 10px 20px;  
+  border-radius: 8px;  
+  border: none;        
+  color: white;      
+  cursor: pointer;   
+}
+
+#tbutton, #sbutton {
+  border-color: var(--c-accent);
+}
+
+#tbutton:hover, #sbutton:hover {
+  background-color: var(--c-accent);
+}
+
+#container-title{
+  padding-bottom: 40px;
+  font-size: 70px;
+}
+
+p, li {
+  font-size: 20px;
+  text-align: center;
+}
+
+#train-title{
+  padding-top: 10px;
+}
+
+h1 span, h2 span, p span, li span, h4 span {
+  color: var(--c-accent);
+}
+
+/*Styling from CA Web Application*/
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#000000, #00000009 50%, #000000);
+}
+
+#hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video scales correctly */
+  z-index: -1; /* Send video behind content */
+}
+
+.accordion-button {
+  display: flex;
+  justify-content: center; /* Centers text horizontally */
+  align-items: center; /* Centers text vertically */
+  text-align: center; /* Ensures text alignment within the button */
+  width: 100%; /* Ensures the button takes up full width of its container */
+  background-color: var(--c-white);
+  font-size: 1.2rem;
+  opacity: 1;
+  height: 3rem;
+}
+
+.accordion-body{
+  font-size: 20px;
+}
+
+.accordion-button:hover{
+  background-color: var(--c-accent);
+}
+.accordion-button::after {
+  display: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--c-accent); 
+  color: var(--c-black); 
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 400px;
+  height: 500px;
+  border: 1px solid transparent;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: var(--c-white);
+  color: var(--c-black);
+  transform: rotateY(180deg);
+  display: flex; /* Use flex for alignment */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Push content to the bottom */
+  align-items: center; /* Center horizontally */
+  text-align: center; /* Center text within the list items */
+  padding: 20px; /* Add some padding for spacing */
+}
+
+.flip-card-back ol {
+  list-style: decimal; /* Ensure ordered list style */
+  padding-left: 15px; 
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Adjust font size */
+  line-height: 1.5; /* Adjust line spacing */
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensures proper sizing */
+}
+
+.overlay-text {
+  position: absolute; /* Position relative to the parent */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Fine-tune centering */
+  color: white; /* Ensure contrast with the image */
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Makes the text stand out */
+  z-index: 2; /* Place it above the image */
+  pointer-events: none; /* Prevents interaction with the text */
+}
+
+/* Animation */
+.container-title.in-view, .current-translation.in-view, .user-inst.in-view, .user-vid.in-view, .col-12.in-view, .row.in-view {
+  animation: fade 5s;
+}
+
+/*-----------------SCROLL TO TOP BUTTON --------------- */
+  /* Style for the scroll-to-top button container */
+  .scrolltop {
+    display: none; /* Initially hide the button */
+    position: fixed; /* Fix the position */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    width: 60px; /* Auto width */
+    height: auto; /* Auto height */
+    z-index: 1000; /* Ensure it's above other elements */
+  }
+  
+  /* Style for the button itself */
+  .scroll {
+   background: var(--c-accent);
+  
+    padding: 15px; /* Adjust padding for size */
+    text-align: center; /* Center the icon */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.5s, transform 0.5s; /* Smooth transitions */
+  }
+  
+  /* Hover effect */
+  .scroll:hover {
+    /*background: rgba(178, 178, 178, 1.0);*/
+    background: var(--c-body);
+    transform: scale(1.5); /* Slightly enlarge on hover */
+  }
+  
+  /* Style for the icon */
+  .scroll .fa {
+    font-size: 24px; /* Adjust font size */
+    color: #fff; /* Icon color */
+  }
+
+
